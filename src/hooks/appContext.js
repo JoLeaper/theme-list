@@ -16,3 +16,8 @@ export const useDispatch = () => {
   const { dispatch } = useContext(AppContext);
   return dispatch;
 }
+
+export const useTheme = () => {
+  const { theme } = useContext(AppContext);
+  return theme;
+}

@@ -1,6 +1,6 @@
 export const initialState = {
   page: 1,
-  theme: 'dark',
+  theme: 'light',
   characterList: []
 }
 
@@ -9,7 +9,7 @@ export default function reducer(state, action) {
     case 'SET_CHARACTERS':
       return { ...state, characterList: action.payload }
     case 'TOGGLE_THEME':
-      return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' }
+      return { ...state, theme: state.theme === 'dark' ? 'light' : 'dark' }
     case 'NEXT_PAGE':
       return { ...state, page: state.page + 1}
     case 'PREV_PAGE': 
