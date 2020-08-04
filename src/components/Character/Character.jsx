@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Character({id, name, image }) {
+function Character({ character: { _id, photoUrl, name}}) {
   return (
-    <li key={id}>
-      <img src={image} />
+    <li key={_id}>
+      <img src={photoUrl} />
       <h1>{name}</h1>
     </li>
   )

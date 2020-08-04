@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
-import { appContext } from '../hooks/appContext';
-import reducer, {initialState} from '../reducers/appReducer';
+import { AppContext } from '../hooks/appContext';
+import reducer, { initialState } from '../reducers/appReducer';
 import { useEffect } from 'react';
 import { getCharacters } from '../services/getCharacters'
 
@@ -8,13 +8,15 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    getCharacters()
+    getCharacters(state.page)
       .then(characters => dispatch({ type: 'SET_CHARACTERS', payload: characters }))
-  }, [page])
+  }, [state.page])
 
   return (
-    <AppProvider.Provider value={{ state, dispatch }}>
+    <AppContext.Provider value={{ state, dispatch }}>
       {children}
-    </AppProvider.Provider>
+    </AppContext.Provider>
   )
 }
+
+export default AppProvider;

@@ -4,7 +4,12 @@ export const AppContext = React.createContext();
 
 export const useCharacters = () => {
   const { state } = useContext(AppContext);
-  return state.characters;
+  return state.characterList;
+}
+
+export const usePage = () => {
+  const { state } = useContext(AppContext);
+  return state.page;
 }
 
 export const useDispatch = () => {
