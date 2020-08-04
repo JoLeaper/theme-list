@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch, useTheme } from '../../hooks/appContext'
 
 function Header() {
@@ -10,7 +10,7 @@ function Header() {
   }
 
   useEffect(() => {
-    
+    document.body.style = `background-color: var(--${theme}-big-color); color: var(--${theme}--fg-color)`
   })
   return (
     <div>
